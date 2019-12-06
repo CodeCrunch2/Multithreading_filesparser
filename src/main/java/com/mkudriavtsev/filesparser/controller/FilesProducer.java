@@ -1,13 +1,13 @@
 package main.java.com.mkudriavtsev.filesparser.controller;
 
 import java.io.File;
-import java.util.concurrent.BlockingQueue;
+import java.util.Queue;
 
 public class FilesProducer implements Runnable {
     private File [] files;
-    private BlockingQueue<File> queue;
-    static boolean isFinished = false;
-    FilesProducer(File directory, BlockingQueue<File> queue) {
+    private Queue<File> queue;
+    public static boolean cycle = true;
+    FilesProducer(File directory, Queue<File> queue) {
         files = directory.listFiles();
         this.queue = queue;
     }
@@ -15,15 +15,10 @@ public class FilesProducer implements Runnable {
     @Override
     public void run() {
         for (File file: files) {
-            try {
-                if (file.isFile()) {
-                    queue.put(file);
-                }
-            }
-            catch (InterruptedException e) {
-                System.out.println("Операция прервана");
+            if (file.isFile()) {
+                queue.add(file);
             }
         }
-        isFinished = true;
+        cycle = false;
     }
 }
