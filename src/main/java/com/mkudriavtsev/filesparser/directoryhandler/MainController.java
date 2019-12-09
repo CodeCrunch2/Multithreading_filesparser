@@ -1,4 +1,4 @@
-package main.java.com.mkudriavtsev.filesparser.controller;
+package main.java.com.mkudriavtsev.filesparser.directoryhandler;
 
 import main.java.com.mkudriavtsev.filesparser.exceptions.DirectoryEmptyException;
 import java.io.File;
@@ -15,13 +15,12 @@ public class MainController {
             Thread filesConsumer = new Thread(new FilesConsumer(queue,processorCount));
             filesProducer.start();
             filesConsumer.start();
-            /*try {
-                filesProducer.join();
+            try {
                 filesConsumer.join();
             }
             catch (InterruptedException e) {
                 System.out.println("Операция прервана");
-            }*/
+            }
 
         }
         else {

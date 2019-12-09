@@ -1,6 +1,6 @@
 package main.java.com.mkudriavtsev.filesparser.view;
 
-import main.java.com.mkudriavtsev.filesparser.controller.MainController;
+import main.java.com.mkudriavtsev.filesparser.directoryhandler.MainController;
 import main.java.com.mkudriavtsev.filesparser.exceptions.DirectoryEmptyException;
 
 import java.io.File;

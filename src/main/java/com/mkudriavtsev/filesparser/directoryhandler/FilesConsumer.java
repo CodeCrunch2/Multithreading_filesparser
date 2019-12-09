@@ -1,4 +1,4 @@
-package main.java.com.mkudriavtsev.filesparser.controller;
+package main.java.com.mkudriavtsev.filesparser.directoryhandler;
 
 import java.io.File;
 import java.util.Queue;
